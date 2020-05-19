@@ -5,6 +5,8 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,7 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var rollButton: Button = findv
+        val rollButton: Button = findViewById(R.id.roll_button);
+        rollButton.text ="Le'ts Roll"
+        rollButton.setOnClickListener{Toast.makeText(this,"button clicked", Toast.LENGTH_SHORT).show()}
 //        setSupportActionBar(toolbar)
 
 //        fab.setOnClickListener { view ->
