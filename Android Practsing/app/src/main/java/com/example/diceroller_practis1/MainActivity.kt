@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,13 +19,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val rollButton: Button = findViewById(R.id.roll_button);
         rollButton.text ="Le'ts Roll"
-        rollButton.setOnClickListener{Toast.makeText(this,"button clicked", Toast.LENGTH_SHORT).show()}
+        rollButton.setOnClickListener{
+            rollDice()
+        }
 //        setSupportActionBar(toolbar)
 
 //        fab.setOnClickListener { view ->
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                    .setAction("Action", null).show()
 //        }
+    }
+
+    private fun rollDice() {
+        val resultText: TextView = findViewById(R.id.result_text);
+        val randomInt = java.util.Random().nextInt(6)+1;
+        resultText.text = randomInt.toString()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
